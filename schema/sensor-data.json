@@ -1,0 +1,109 @@
+{
+  "sensors": [
+    {
+      "id": "CPU_Utilization",
+      "name": "CPU Utilization",
+      "category": "CPU",
+      "unit": "%",
+      "range": { "min": 0, "max": 100 },
+      "description": "Overall CPU usage percentage across all cores",
+      "thresholds": [
+        { "value": 70, "level": "warning", "color": "#FFFF00" },
+        { "value": 90, "level": "critical", "color": "#FF0000" }
+      ]
+    },
+    {
+      "id": "CPU_Temperature",
+      "name": "CPU Temperature", 
+      "category": "CPU",
+      "unit": "°C",
+      "range": { "min": 30, "max": 90 },
+      "description": "CPU core temperature (Tctl/Tdie)",
+      "thresholds": [
+        { "value": 70, "level": "warning", "color": "#FFFF00" },
+        { "value": 85, "level": "critical", "color": "#FF0000" }
+      ]
+    },
+    {
+      "id": "GPU_Utilization",
+      "name": "GPU Utilization",
+      "category": "GPU", 
+      "unit": "%",
+      "range": { "min": 0, "max": 100 },
+      "description": "GPU core utilization percentage",
+      "thresholds": [
+        { "value": 80, "level": "warning", "color": "#FFFF00" },
+        { "value": 95, "level": "critical", "color": "#FF0000" }
+      ]
+    },
+    {
+      "id": "GPU_Temperature",
+      "name": "GPU Temperature",
+      "category": "GPU",
+      "unit": "°C", 
+      "range": { "min": 30, "max": 95 },
+      "description": "GPU core temperature",
+      "thresholds": [
+        { "value": 75, "level": "warning", "color": "#FFFF00" },
+        { "value": 90, "level": "critical", "color": "#FF0000" }
+      ]
+    },
+    {
+      "id": "GPU_Memory",
+      "name": "GPU Memory Usage",
+      "category": "GPU",
+      "unit": "GB",
+      "range": { "min": 0, "max": 12 },
+      "description": "GPU memory usage in gigabytes",
+      "thresholds": [
+        { "value": 8, "level": "warning", "color": "#FFFF00" },
+        { "value": 10, "level": "critical", "color": "#FF0000" }
+      ]
+    },
+    {
+      "id": "Memory_Usage",
+      "name": "Memory Usage",
+      "category": "Memory",
+      "unit": "%",
+      "range": { "min": 0, "max": 100 },
+      "description": "System RAM usage percentage",
+      "thresholds": [
+        { "value": 80, "level": "warning", "color": "#FFFF00" },
+        { "value": 95, "level": "critical", "color": "#FF0000" }
+      ]
+    },
+    {
+      "id": "Memory_Total",
+      "name": "Total Memory",
+      "category": "Memory", 
+      "unit": "GB",
+      "range": { "min": 4, "max": 128 },
+      "description": "Total system RAM capacity in gigabytes",
+      "thresholds": []
+    },
+    {
+      "id": "WiFi_Speed",
+      "name": "WiFi Speed",
+      "category": "Network",
+      "unit": "Mbps",
+      "range": { "min": 0, "max": 1000 },
+      "description": "WiFi download speed in megabits per second",
+      "thresholds": [
+        { "value": 50, "level": "info", "color": "#00FF00" },
+        { "value": 100, "level": "info", "color": "#00FFFF" }
+      ]
+    },
+    {
+      "id": "Ethernet_Speed", 
+      "name": "Ethernet Speed",
+      "category": "Network",
+      "unit": "Mbps",
+      "range": { "min": 0, "max": 1000 },
+      "description": "Ethernet download speed in megabits per second",
+      "thresholds": [
+        { "value": 100, "level": "info", "color": "#00FF00" },
+        { "value": 500, "level": "info", "color": "#00FFFF" }
+      ]
+    }
+  ]
+}

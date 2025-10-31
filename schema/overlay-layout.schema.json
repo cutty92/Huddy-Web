@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hardware-monitor-overlay.github.io/schema/overlay-layout.schema.json",
+  "title": "Hardware Monitor Overlay Layout",
+  "description": "JSON schema for hardware monitoring overlay layouts",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["version", "elements"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version",
+      "pattern": "^1\\.0$",
+      "default": "1.0"
+    },
+    "elements": {
+      "type": "array",
+      "description": "Array of visual elements to render",
+      "items": {
+        "$ref": "#/definitions/Element"
+      },
+      "minItems": 0
+    }
+  },
+  "definitions": {
+    "Element": {
+      "type": "object",
+      "required": ["id", "type", "sensor", "visual"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique element identifier",
+          "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "type": {
+          "type": "string",
+          "description": "Element type",
+          "enum": [
+            "gauge", "text", "bar", "circle", "rectangle", "line",
+            "progress_ring", "dial", "thermometer", "speedometer", "level_meter", "radial_gauge", "linear_gauge",
+            "led", "status_light", "traffic_light", "battery", "signal_bars", "wifi_indicator",
+            "cpu_cores", "memory_banks", "network_activity", "disk_activity", "fan_blade", "temperature_zones",
+            "line_graph", "area_graph", "sparkline", "histogram", "pie_chart", "donut_chart",
+            "button", "toggle", "slider", "knob",
+            "particle_system", "wave_form", "spectrum_analyzer", "flame_effect", "liquid_fill"
+          ],
+          "default": "gauge"
+        },
+        "sensor": {
+          "type": "string",
+          "description": "Sensor ID to bind to",
+          "enum": [
+            "CPU_Utilization", "CPU_Temperature", "CPU_Power", "CPU_Voltage", "CPU_Clock",
+            "CPU_Core_0", "CPU_Core_1", "CPU_Core_2", "CPU_Core_3", "CPU_Core_4", "CPU_Core_5", "CPU_Core_6", "CPU_Core_7",
+            "GPU_Utilization", "GPU_Temperature", "GPU_Memory", "GPU_Power", "GPU_Clock", "GPU_Fan",
+            "Memory_Usage", "Memory_Total", "Memory_Available", "Memory_Bandwidth",
+            "WiFi_Speed", "Ethernet_Speed", "Network_Upload", "Network_Download",
+            "Disk_Usage", "Disk_Temperature", "Disk_Read", "Disk_Write",
+            "Motherboard_Temperature", "Fan_CPU", "Fan_Case_1", "Fan_Case_2",
+            "PSU_Power", "PSU_Voltage_12V", "PSU_Voltage_5V"
+          ]
+        },
+        "visual": {
+          "$ref": "#/definitions/VisualProperties"
+        },
+        "animated": {
+          "type": "boolean",
+          "description": "Whether element has animations",
+          "default": false
+        },
+        "animationSpeed": {
+          "type": "number",
+          "description": "Animation speed multiplier",
+          "minimum": 0.1,
+          "maximum": 10.0,
+          "default": 1.0
+        }
+      },
+      "additionalProperties": false
+    },
+    "VisualProperties": {
+      "type": "object",
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": {
+          "type": "number",
+          "description": "X position in pixels",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number", 
+          "description": "Y position in pixels",
+          "minimum": 0
+        },
+        "width": {
+          "type": "number",
+          "description": "Element width in pixels",
+          "minimum": 1
+        },
+        "height": {
+          "type": "number",
+          "description": "Element height in pixels", 
+          "minimum": 1
+        },
+        "backgroundColor": {
+          "type": "string",
+          "description": "Background color",
+          "pattern": "^(transparent|#[0-9a-fA-F]{3,6}|rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)|rgba\\(\\d+,\\s*\\d+,\\s*\\d+,\\s*[0-9.]+\\).*)$",
+          "default": "transparent"
+        },
+        "foregroundColor": {
+          "type": "string",
+          "description": "Foreground/text color",
+          "pattern": "^(transparent|#[0-9a-fA-F]{3,6}|rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)|rgba\\(\\d+,\\s*\\d+,\\s*\\d+,\\s*[0-9.]+\\).*)$",
+          "default": "white"
+        },
+        "needleColor": {
+          "type": "string",
+          "description": "Gauge needle color",
+          "pattern": "^(transparent|#[0-9a-fA-F]{3,6}|rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)|rgba\\(\\d+,\\s*\\d+,\\s*\\d+,\\s*[0-9.]+\\).*)$",
+          "default": "lime"
+        },
+        "opacity": {
+          "type": "number",
+          "description": "Element opacity",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 1.0
+        },
+        "visible": {
+          "type": "boolean",
+          "description": "Whether element is visible",
+          "default": true
+        },
+        "showText": {
+          "type": "boolean",
+          "description": "Whether to show text labels on the element",
+          "default": true
+        },
+        "fontFamily": {
+          "type": "string",
+          "description": "Font family name",
+          "default": "Consolas"
+        },
+        "fontSize": {
+          "type": "number",
+          "description": "Font size in pixels",
+          "minimum": 8,
+          "maximum": 72,
+          "default": 12
+        },
+        "fontWeight": {
+          "type": "string",
+          "description": "Font weight",
+          "enum": ["normal", "bold", "100", "200", "300", "400", "500", "600", "700", "800", "900"],
+          "default": "normal"
+        },
+        "fontStyle": {
+          "type": "string",
+          "description": "Font style",
+          "enum": ["normal", "italic", "oblique"],
+          "default": "normal"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

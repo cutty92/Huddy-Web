@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "elements": [
+    {
+      "id": "cpu_utilization_gauge",
+      "type": "gauge",
+      "sensor": "CPU_Utilization",
+      "visual": {
+        "x": 100,
+        "y": 50,
+        "width": 200,
+        "height": 200,
+        "backgroundColor": "transparent",
+        "foregroundColor": "white",
+        "needleColor": "lime",
+        "opacity": 0.9,
+        "visible": true,
+        "fontFamily": "Consolas",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "fontStyle": 0
+      },
+      "animated": true,
+      "animationSpeed": 2.0
+    }
+  ]
+}

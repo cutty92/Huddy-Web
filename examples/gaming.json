@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "elements": [
+    {
+      "id": "cpu_temp_gauge",
+      "type": "gauge",
+      "sensor": "CPU_Temperature",
+      "visual": {
+        "x": 50,
+        "y": 50,
+        "width": 150,
+        "height": 150,
+        "backgroundColor": "rgba(0, 0, 0, 0.3)",
+        "foregroundColor": "#00FFFF",
+        "needleColor": "#FF0000",
+        "opacity": 0.9,
+        "visible": true,
+        "fontFamily": "Consolas",
+        "fontSize": 14,
+        "fontWeight": 700,
+        "fontStyle": 0
+      },
+      "animated": true,
+      "animationSpeed": 1.5
+    },
+    {
+      "id": "gpu_utilization_bar",
+      "type": "bar",
+      "sensor": "GPU_Utilization",
+      "visual": {
+        "x": 250,
+        "y": 50,
+        "width": 200,
+        "height": 30,
+        "backgroundColor": "rgba(0, 0, 0, 0.5)",
+        "foregroundColor": "#00FF00",
+        "needleColor": "#00FF00",
+        "opacity": 0.9,
+        "visible": true,
+        "fontFamily": "Consolas",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "fontStyle": 0
+      },
+      "animated": true,
+      "animationSpeed": 2.0
+    },
+    {
+      "id": "memory_usage_text",
+      "type": "text",
+      "sensor": "Memory_Usage",
+      "visual": {
+        "x": 50,
+        "y": 250,
+        "width": 200,
+        "height": 50,
+        "backgroundColor": "transparent",
+        "foregroundColor": "#FFFFFF",
+        "needleColor": "#FFFFFF",
+        "opacity": 1.0,
+        "visible": true,
+        "fontFamily": "Consolas",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "fontStyle": 0
+      },
+      "animated": false,
+      "animationSpeed": 1.0
+    },
+    {
+      "id": "fps_counter",
+      "type": "text",
+      "sensor": "GPU_Utilization",
+      "visual": {
+        "x": 1700,
+        "y": 50,
+        "width": 150,
+        "height": 40,
+        "backgroundColor": "rgba(0, 0, 0, 0.7)",
+        "foregroundColor": "#00FF00",
+        "needleColor": "#00FF00",
+        "opacity": 0.9,
+        "visible": true,
+        "fontFamily": "Consolas",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "fontStyle": 0
+      },
+      "animated": true,
+      "animationSpeed": 3.0
+    }
+  ]
+}
